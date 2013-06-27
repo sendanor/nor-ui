@@ -46,12 +46,10 @@ A HTML document can use the library simply by:
 <div class="form" data-action="resource.php"></div>
 ```
 
-Where `resource.php` is a server side PHP script, which when requested by:
+Where `resource.php` is a server side PHP script which when requested by:
 
-* GET returns an JSON object
-* POST saves changes to that object
-* PUT replaces the object completely
-* DELETE deletes the resource
+* GET returns the resource as JSON object * POST saves changes to the resource 
+* PUT replaces the resource completely * DELETE deletes the resource
 
 See [our gist example](https://gist.github.com/jheusala/5875888) for full 
 example code.
