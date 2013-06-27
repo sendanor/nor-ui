@@ -54,6 +54,9 @@ Where `resource.php` is a server side PHP script, which when requested by:
 * DELETE deletes the resource
 
 See [our gist example](https://gist.github.com/jheusala/5875888) for full 
-example code. It's not very pretty but that's because it's missing all CSS and 
-the library code was shred from another project.
+example code.
+
+The implementation is not yet very pretty because the library code was shred 
+from another private project and is using just a subset of features to put 
+everything together for that specific project.
 
