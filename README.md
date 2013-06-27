@@ -46,7 +46,12 @@ A HTML document can use the library simply by:
 <div class="form" data-action="resource.php"></div>
 ```
 
-`resource.php` is a PHP backend providing RESTful access to the actual data. 
+Where `resource.php` is a server side PHP script, which when requested by:
+
+* GET returns an JSON object
+* POST saves changes to that object
+* PUT replaces the object completely
+* DELETE deletes the resource
 
 See [our gist example](https://gist.github.com/jheusala/5875888) for full 
 example code. It's not very pretty but that's because it's missing all CSS and 
