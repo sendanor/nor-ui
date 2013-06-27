@@ -1,0 +1,31 @@
+/* CSS for Modals */
+
+.modal {
+	display: none;
+	position: absolute;
+	top: 5%;
+	bottom: 5%;
+	left: 20%;
+	right: 20%;
+	z-index: 999;
+	margin: 15px;
+	padding: 2%;
+	background: white;
+	border: 3px solid #999999;
+	box-shadow: 10px 10px 5px #888888;
+	overflow: auto;
+}
+
+#modal-dismiss {
+
+	
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 500;
+	
+}
+
+/* EOF */
