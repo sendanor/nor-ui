@@ -1,5 +1,5 @@
 /* Backend Client Implementation */
-define(function () {
+define(["jquery"], function ($) {
 	"use strict";
 
 	var $client = {};
@@ -10,6 +10,7 @@ define(function () {
 			return;
 		}
 		var defs = obj._meta.defaults;
+		// FIXME: Unnecessary jquery dependency -- foreach could be implemented depency-free
 		$.each(defs, function(key, value) {
 			if(!obj[key]) {
 				obj[key] = value;
@@ -19,6 +20,7 @@ define(function () {
 
 	/** Fetch resource */
 	$client.get = function(url, fn) {
+		// FIXME: $.getJSON could be implemented using common API which supports multiple implementations for HTTP requests, so that jquery would not be a dependency.
 		$.getJSON(url, function(data) {
 			
 			// Fetch prototype if it exists
@@ -26,7 +28,10 @@ define(function () {
 
 				// FIXME: Implement cache with some kind of version control
 
+				// FIXME: Unnecessary jquery dependency -- foreach could be implemented depency-free
 				$.getJSON(data._links.proto.href, function(proto) {
+
+					// FIXME: Unnecessary jquery dependency -- foreach could be implemented depency-free
 					$.each(proto, function(key, value) {
 						if(data[key] === undefined) {
 							data[key] = value;

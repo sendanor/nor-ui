@@ -1,7 +1,10 @@
 /* Index module */
-define({
-	'form':   require('./form'),
-	'client': require('./client'),
-	'meta':   require('./meta'),
-	'modal':  require('./modal')
+define(["./form", "./client", "./meta", "./modal"], function(form, client, meta, modal) {
+	var index = {
+		'form':   form,
+		'client': client,
+		'meta':   meta,
+		'modal':  modal
+	};
+	return index;
 });

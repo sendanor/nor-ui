@@ -1,5 +1,5 @@
 /* Modal Implementation */
-define(function() {
+define(["jquery", "./client", "./form", "./meta"], function($, $client, $form, $meta) {
 	"use strict";
 
 	var $form = {
@@ -39,6 +39,7 @@ define(function() {
 		// Hidden field
 		'hidden' : {
 			'create': function(key, value, meta) {
+				// FIXME: Maybe jquery could be avoided by using some other way
 				var div = $('<div class="field hide" />');
 				var input = $('<input type="hidden"/>').attr('value', value).attr('name', key);
 				div.append(input);
@@ -46,6 +47,7 @@ define(function() {
 			}
 		},
 		// Location field
+		// FIXME: Move Google Maps features to external module / implement modular way of extending features
 		'location' : {
 			'create': function(key, value, meta) {
 				var div = $('<div class="field location" />');
@@ -84,7 +86,6 @@ define(function() {
 						center: new google.maps.LatLng(lat, long),
 						mapTypeId: google.maps.MapTypeId.ROADMAP
 					};
-					//var map = new google.maps.Map($(map_div).get(), mapOptions);
 					var map = new google.maps.Map(map_div.get(0), mapOptions);
 					
 					var store = {}, position;
