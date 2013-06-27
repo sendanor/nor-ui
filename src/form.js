@@ -1,5 +1,5 @@
 /* Modal Implementation */
-define(["jquery", "./client", "./form", "./meta"], function($, $client, $form, $meta) {
+define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 	"use strict";
 
 	var $form = {
