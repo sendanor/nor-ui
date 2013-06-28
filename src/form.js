@@ -42,7 +42,7 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 		_form_meta._meta.types.year.options[i] = i;
 	}
 	
-	/* Implement fields */
+	/** Implementations of field types */
 	$form.fields = {
 		// Hidden field
 		'hidden' : {
