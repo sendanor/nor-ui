@@ -291,12 +291,25 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 		}
 	};
 
+	/**
+	 * @callback FormSuccessCallback
+	 * @param {object} form - HTML element
+	 */
+
+	/**
+	 * @typedef initFormOptions
+	 * @type {object}
+	 * @property {FormSuccessCallback} success - Callback which will be called after the form has been built.
+	 */
+
 	/** Initialize forms 
-	*@method initForm
-	*/
+	 * @method initForm
+	 * @param {object|string} obj - Element where the form will be created. It can also be JQuery selector string.
+	 * @param {initFormOptions} opts - Options for initialization
+	 */
 	$form.initForm = function(obj, opts) {
 			opts = opts || {};
-			var form_div = obj;
+			var form_div = $(obj);
 			var action = $(form_div).attr('data-action');
 			var method = (''+($(form_div).attr('data-method') || 'post')).toLowerCase();
 			var fields_from = $(form_div).attr('data-fields-from') || action;
@@ -321,6 +334,7 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 						if(opts.success) {
 							opts.success(form_div);
 						} else {
+							// FIXME: There should be better way than alert()!
 							alert("OK");
 						}
 					}).fail(function() {
