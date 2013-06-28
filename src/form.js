@@ -377,8 +377,7 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 	};
 
 	/** Initialize forms 
-	*@method init
-	*/
+	 */
 	$form.init = function(obj) {
 
 		/* Setup forms with data */
@@ -390,8 +389,7 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 	};
 
 	/** Create form 
-	*@method create
-	*/
+	 */
 	$form.create = function(opts) {
 		opts = opts || {};
 

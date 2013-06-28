@@ -13,8 +13,7 @@ define(["jquery"], function ($) {
 	var $client = {};
 
 	/** Populate default values from ._meta.defaults if it exists 
-	*@method populate_defaults
-	*/
+	 */
 	function populate_defaults(obj) {
 		if(!(obj && obj._meta && obj._meta.defaults)) {
 			return;
@@ -29,8 +28,7 @@ define(["jquery"], function ($) {
 	}
 
 	/** Fetch resource 
-	*@method get
-	*/
+	 */
 	$client.get = function(url, fn) {
 		// FIXME: $.getJSON could be implemented using common API which supports multiple implementations for HTTP requests, so that jquery would not be a dependency.
 		$.getJSON(url, function(data) {
