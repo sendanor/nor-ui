@@ -5,6 +5,11 @@ if (typeof define !== 'function') {
 define(["jquery"], function ($) {
 	"use strict";
 
+   /** 
+    * A module implementing AJAX library for our smart REST backend
+    * @exports nor-ui/client
+    * @version 0.1.0
+    */
 	var $client = {};
 
 	/** Populate default values from ._meta.defaults if it exists 

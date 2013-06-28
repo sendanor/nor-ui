@@ -5,6 +5,11 @@ if (typeof define !== 'function') {
 define(["jquery"], function($) {
 	"use strict";
 
+   /** 
+    * A modal implementation
+    * @exports nor-ui/modal
+    * @version 0.1.0
+    */
 	var $modal = {};
 
 	/** Enable or disable dismiss layer behind a modal */
