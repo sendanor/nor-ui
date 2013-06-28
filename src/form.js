@@ -303,7 +303,6 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 	 */
 
 	/** Initialize forms 
-	 * @method initForm
 	 * @param {object|string} obj - Element where the form will be created. It can also be JQuery selector string.
 	 * @param {initFormOptions} opts - Options for initialization
 	 */

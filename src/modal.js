@@ -75,8 +75,8 @@ define(["jquery"], function($) {
 	};
 	
 	/** Dynamically create a modal 
-	*@method create
-	*/
+	 * @method create
+	 */
 	$modal.create = function(obj) {
 		var div = $('<div class="modal" />');
 		if(obj) {
@@ -89,8 +89,8 @@ define(["jquery"], function($) {
 	};
 
 	/** Open a modal 
-	*@method open
-	*/
+	 * @method open
+	 */
 	$modal.open = function(obj) {
 		var div = $(obj);
 		div.show();
@@ -99,8 +99,8 @@ define(["jquery"], function($) {
 	};
 
 	/** Close a modal 
-	*@method close
-	*/
+	 * @method close
+	 */
 	$modal.close = function(div) {
 		div = $(div);
 		div.hide();
@@ -109,8 +109,8 @@ define(["jquery"], function($) {
 	};
 
 	/** Delete a modal 
-	*@method del
-	*/
+	 * @method del
+	 */
 	$modal.del = function(div) {
 		div = $(div);
 		$modal.close(div);
