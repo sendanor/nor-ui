@@ -286,7 +286,9 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 		}
 	};
 
-	/* Initialize forms */
+	/** Initialize forms 
+	*@method initForm
+	*/
 	$form.initForm = function(obj, opts) {
 			opts = opts || {};
 			var form_div = obj;
@@ -356,7 +358,9 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 			$(form_div).append(form);
 	};
 
-	/* Initialize forms */
+	/** Initialize forms 
+	*@method init
+	*/
 	$form.init = function(obj) {
 
 		/* Setup forms with data */
@@ -367,7 +371,9 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 	
 	};
 
-	/** Create form */
+	/** Create form 
+	*@method create
+	*/
 	$form.create = function(opts) {
 		opts = opts || {};
 
