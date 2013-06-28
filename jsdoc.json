@@ -1,5 +1,7 @@
 {
-    "template": "haruki",
+	"opts": {
+	    "template": "haruki"
+	},
     "tags": {
         "allowUnknownTags": true
     },
