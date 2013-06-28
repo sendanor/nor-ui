@@ -8,11 +8,16 @@ html, body {
 }
 
 nav {
+	padding-top: 10px;
+	padding-bottom: 10px;
 	margin-left: 50px;
 	font-size: 20px;
 }
 
-nav a.current {
+section {
+	border-top: 1px solid #292936;
+	border-bottom: 1px solid #292936;
+	
 	
 }
 
@@ -41,24 +46,27 @@ nav a.current {
 	height: 100px;
 	
 }
-.client_side {
+.client_side_box {
 	height: 300px;
 	width: 300px;
 	position: absolute;
-	padding: 0;
+	padding-top: 20px;
 	left: 50px;
-	border: 5px solid;
+	background: #99CCFF;
+	margin-top: 20px;
 	
+	
+		
 }
 
-.server_side {
+.server_side_box {
 	height: 300px;
 	width: 300px;
 	position: absolute;
-	padding: 0;
+	padding-top: 20px;
 	left: 450px;
-	border: 5px solid;
-	
+	margin-top: 20px;
+	background: #99CCFF;
 }
 
 /* EOF*/
