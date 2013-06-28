@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: refmap.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Source: refmap.js</h1>
+    
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>/* Reference Map using Google Maps */
+"use strict";
+var $refmap = (function() {
+	var $refmap = {};
+	// Start of library code
+
+	// Object that contains global google objects like the .map object
+	$refmap.g = {
+		'markers': {},
+		'markerContent': {},
+		'markerInfoWindow': {}
+	};
+
+	/** Returns a list of all markers on map 
+	*@method hasMarkers
+	*/
+	$refmap.hasMarkers = function() {
+		return Object.keys($refmap.g.markers);
+	};
+
+	/** Returns true if marker is on map */
+	$refmap.hasMarker = function(ID) {
+		return ($refmap.g.markers[ID]) ? true : false;
+	};
+
+	/** Remove marker from map 
+	*@method removeMarker
+	*@param ID ID of the marker to be removed
+	*/
+	$refmap.removeMarker = function(ID) {
+		if($refmap.g.markers[ID]) {
+			$refmap.g.markers[ID].setMap(null);
+			$refmap.g.markers[ID].unbindAll();
+			delete $refmap.g.markers[ID];
+		}
+		if($refmap.g.markerContent[ID]) {
+			$($refmap.g.markerContent[ID]).remove();
+			delete $refmap.g.markerContent[ID];
+		}
+		if($refmap.g.markerInfoWindow[ID]) {
+			$refmap.g.markerInfoWindow[ID].close();
+			delete $refmap.g.markerInfoWindow[ID];
+		}
+	};
+
+	/** Set marker on map
+	 * @param .map google.maps.Map The map
+	 * @param .title string Title for marker
+	 * @param .position array|google.maps.Marker Either [lat,long] as an array or instance of google.maps.Marker object.
+	 * @returns An object with properties .map, .position, .marker, .infowindow, and .title. 
+	 *@method setMarker
+	 */
+	$refmap.setMarker = function(opts) {
+		opts = opts || {};
+		var ID = opts.ID || 0;
+		var pos = opts.pos || {};
+		var title = opts.name || '';
+		var position = new google.maps.LatLng(pos.lat, pos.long);
+
+		var marker = new google.maps.Marker({
+			position: position,
+			map: $refmap.g.map,
+			title: title,
+			icon: "gfx/node" + opts.builder_id + ".png"
+		});
+		
+		if($refmap.hasMarker(ID)) {
+			$refmap.removeMarker(ID);
+		}
+		$refmap.g.markers[ID] = marker;
+		
+		var contentString = $('#siteinfo_tpl').clone().children().first();
+		
+		// Populate values into template
+		$.each(opts, function(key, value) {
+			$(contentString).find("[data-from='"+key+"']").text(value);
+			$(contentString).find("[data-label-from='"+key+"']").each(function() {
+				var self = this;
+				var label = value;
+				var type = $refmap._meta.getType(key);
+				if(type && (type.type === 'multi')) {
+					label = $refmap._meta._meta.types[key].options[value];
+				}
+				$(self).text(label);
+			});
+			$(contentString).find("[data-src-from='"+key+"']").each(function() {
+				var self = this;
+				if(value === "") {
+					$(self).remove();
+				} else {
+					$(self).attr('src', 'backend/sites/' + encodeURIComponent(ID) + '/' + encodeURIComponent(value) + '?w=' + encodeURIComponent(contentString.width() || 300) );
+				}
+			});
+		});
+
+		// Add admin tools
+		if($refmap.apikey) {
+			var admin_div = $('&lt;div class="admin"/>');
+
+			/** Edit link
+			*@method edit_link
+			*@param edit_div variable for the div to be generated
+			*@param edit_link variable for the edit button
+			*/
+			var edit_link = $('&lt;a class="btn" href="#">Muokkaa&lt;/a>');
+			edit_link.click(function() {
+				var edit_div = $('&lt;div/>');
+				edit_div.append( $('&lt;h3>Muokkaa kohdetta&lt;/h3>') );
+				edit_div.append( $form.create({
+					'action': 'backend/sites/' + encodeURIComponent(ID) + '?apikey=' + encodeURIComponent($refmap.apikey),
+					'method': 'post',
+					'fields_ignore': 'ID updated created'
+				}) );
+				edit_div.append( $('&lt;a class="close" data-dismiss="modal" href="#">Sulje&lt;/a>') );
+				var modal_div = $modal.create(edit_div);
+				$modal.open(modal_div);
+				return false;
+			});
+			admin_div.append(edit_link);
+
+			/** Delete link 
+			*@method del_link
+			*/
+			var del_link = $('&lt;a class="btn" href="#">Poista&lt;/a>');
+			del_link.click(function() {
+				var modal_div;
+				var del_div = $('&lt;div/>');
+				del_div.append( $('&lt;h3>Haluatko varmasti poistaa kohteen &lt;span data-from="name">&lt;/span>?&lt;/h3>') );
+				var form = $form.create({
+					'action': 'backend/sites/' + encodeURIComponent(ID) + '?apikey=' + encodeURIComponent($refmap.apikey),
+					'method': 'delete',
+					'fields_ignore': '*',
+					'success': function() {
+						$modal.del(modal_div);
+					}
+				});
+				del_div.append( form );
+				del_div.append( $('&lt;a class="close" data-dismiss="modal" href="#">Peruuta&lt;/a>') );
+				modal_div = $modal.create(del_div);
+				$modal.open(modal_div);
+				return false;
+			});
+			admin_div.append(del_link);
+
+			contentString.append(admin_div);
+		}
+
+		$refmap.g.markerContent[ID] = contentString.get(0);
+
+		// 
+		//alert("infoWindow for " + ID);
+		var infowindow = new google.maps.InfoWindow({
+			content: $refmap.g.markerContent[ID]
+		});
+		$refmap.g.markerInfoWindow[ID] = infowindow;
+		
+		google.maps.event.addListener(marker, 'click', function() {
+			infowindow.open($refmap.g.map,marker);
+		});
+		
+		var ret = {};
+		ret.map = $refmap.g.map;
+		ret.position = position;
+		ret.marker = marker;
+		ret.infowindow = infowindow;
+		ret.title = title;
+		return ret;
+	};
+	
+	/** Remove markers from map 
+	*@method clear
+	*/
+	$refmap.clear = function() {
+		$.each($refmap.g.markers, function(ID, marker) {
+			$refmap.removeMarker(ID);
+		});
+	};
+
+	/** Update markers on map
+	*@method update
+	*@method get_checks
+	*@method get_sels
+	*/
+	$refmap.update = function(fn) {
+		function get_checks(id) {
+			var ret = [];
+			$(id).find('input:checked').each(function() {
+				var input = this;
+				var v = $(input).attr('value');
+				if(v || (v===0) ) { ret.push( v ); }
+			});
+			return ret;
+		}
+		
+		function get_sels(id) {
+			var ret = [];
+			$(id).find('option:selected').each(function() {
+				var input = this;
+				var v = $(input).attr('value');
+				if(v || (v===0) ) { ret.push( v ); }
+			});
+			return ret;
+		}
+
+		var c = get_checks('#sel_companies');
+		var a = get_checks('#sel_areas');
+		var y = get_sels('#sel_year');
+
+		var opts = [];
+		if( c.length ) { opts.push( 'c=' + encodeURIComponent(c.join(',')) ); }
+		if( a.length ) { opts.push( 'a=' + encodeURIComponent(a.join(',')) ); }
+		if( y.length ) { opts.push( 'y=' + encodeURIComponent(y.join(',')) ); }
+
+		var where = opts.length ? ('?' + opts.join('&')) : '';
+
+		var old_markers = $refmap.hasMarkers();
+
+		$client.get('backend/sites' + where, function(data) {
+			if(data && data._embedded && data._embedded.sites) {
+				var new_markers = {};
+				$.each(data._embedded.sites, function(key, value) {
+					if(!value._meta) { value._meta = $refmap._proto._meta; } // FIXME: backend/sites should return _meta somehow
+					$refmap.setMarker(value);
+					new_markers[value.ID] = true;
+				});
+
+				$.each(old_markers, function(key, value) {
+					if(!new_markers.hasOwnProperty(value)) {
+						$refmap.removeMarker(value);
+					}
+				});
+				
+				if(fn) {
+					fn();
+				}
+			}
+		});
+	};
+	
+	/** Reset markers on map 
+	*@method reset
+	*/
+	$refmap.reset = function(fn) {
+		$refmap.update(fn);
+	};
+
+	/** Initialize the map
+	*@method initialize_google
+	*/
+	function initialize_google() {
+		// Setup map
+		var map_Latlng = new google.maps.LatLng(65,26);
+		
+		var mapOptions = {
+			zoom: 4,
+			center: map_Latlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		
+		$refmap.g.map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+		
+		$refmap.update();
+
+	}
+		
+	/** Initialize the map */
+	function initialize() {
+		
+		// Queued map reset callback
+		var reset_queue = [];
+		function reset() {
+			reset_queue.push(true);
+		}
+
+		var reset_pending = false;
+		setInterval(function() {
+			if(reset_pending) { return; }
+			if(reset_queue.length === 0) { return; }
+
+			reset_pending = true;
+			reset_queue.shift();
+			$refmap.reset(function() {
+				reset_pending = false;
+			});
+
+		}, 500);
+
+		/** Update selections 
+		*update selected checkboxes
+		*@method get
+		*/
+		$client.get('backend/sites/proto', function(proto) {
+			if(! (proto && proto._meta && proto._meta.types) ){
+				// FIXME: Display error message
+				return;
+			}
+
+			$refmap._proto = proto;
+			$refmap._meta = $meta.parse(proto);
+
+			/** Setup checkboxes and texts
+			*@method each
+			*/
+			if( proto._meta.types.builder_id && proto._meta.types.builder_id.options ) {
+				$.each(proto._meta.types.builder_id.options, function(key, value) {
+					$('#sel_companies').append( $('&lt;label/>').append( $('&lt;input type="checkbox" name="c" />').attr('value', key).change(reset) ).append( $('&lt;span class="textspan" />').text(value) ) );
+				});
+			}
+
+			// Setup #sel_areas
+			if( proto._meta.types.business_type_id && proto._meta.types.business_type_id.options ) {
+				$.each(proto._meta.types.business_type_id.options, function(key, value) {
+					$('#sel_areas').append( $('&lt;label/>').append( $('&lt;input type="checkbox" name="a" />').attr('value', key).change(reset) ).append( $('&lt;span class="textspan" />').text(value) ) );
+				});
+			}
+
+			// Setup #sel_year
+		    var current_year = new Date().getFullYear();
+			var i;
+		    for(i = current_year-20; i&lt;=current_year; i+=1) {
+				$('#sel_year').change(reset).append( $('&lt;option>').attr('value', i).text(i) );
+		    }
+
+			// Initialize rest of the app
+			initialize_google();
+		});
+	}
+	
+	google.maps.event.addDomListener(window, 'load', initialize);
+
+	// End of library code
+	return $refmap;
+}());
+/* EOF */
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Global</h3><ul><li><a href="global.html#clear">clear</a></li><li><a href="global.html#del_link">del_link</a></li><li><a href="global.html#each">each</a></li><li><a href="global.html#edit_link">edit_link</a></li><li><a href="global.html#get">get</a></li><li><a href="global.html#get_sels">get_sels</a></li><li><a href="global.html#hasMarkers">hasMarkers</a></li><li><a href="global.html#initialize_google">initialize_google</a></li><li><a href="global.html#removeMarker">removeMarker</a></li><li><a href="global.html#reset">reset</a></li><li><a href="global.html#setMarker">setMarker</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Fri Jun 28 2013 15:42:10 GMT+0300 (EEST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
