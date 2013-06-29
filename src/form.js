@@ -293,19 +293,19 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 	};
 
 	/**
-	 * @callback exports~successCallback
+	 * @callback nor-ui/form~successCallback
 	 * @param {object} form - HTML element
 	 */
 	
 	/**
-	 * @typedef exports~options
+	 * @typedef nor-ui/form~options
 	 * @type {object}
-	 * @property {exports~successCallback} success - Callback which will be called after the form has been built.
+	 * @property {nor-ui/form~successCallback} success - Callback which will be called after the form has been built.
 	 */
 
 	/** Initialize forms 
 	 * @param {object|string} obj - Element where the form will be created. It can also be JQuery selector string.
-	 * @param {exports~options} opts - Options for initialization
+	 * @param {nor-ui/form~options} opts - Options for initialization
 	 */
 	exports.initForm = function(obj, opts) {
 
