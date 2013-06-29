@@ -45,6 +45,7 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 	
 	/**
 	 * @callback fieldCreateCallback
+	 * @memberof form
 	 * @inner
 	 * @param {string} key - Field keyword
 	 * @param {string} value - Field value
@@ -53,6 +54,7 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 
 	/**
 	 * @typedef fieldsObject
+	 * @memberof form
 	 * @inner
 	 * @type {object}
 	 * @property {fieldCreateCallback} create - Function which builds the element
@@ -312,12 +314,14 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 
 	/**
 	 * @callback form~successCallback
+	 * @memberof form
 	 * @inner
 	 * @param {object} form - HTML element
 	 */
 	
 	/**
 	 * @typedef form~options
+	 * @memberof form
 	 * @inner
 	 * @type {object}
 	 * @property {form~successCallback} success - Callback which will be called after the form has been built.
