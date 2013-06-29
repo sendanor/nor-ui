@@ -1,2 +1,2 @@
 #!/bin/sh -x
-node-lint ./src/*.js --config=lint.json
+node-lint ./src/ --config=lint.json
