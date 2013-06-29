@@ -7,7 +7,7 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 
    /** 
     * A module implementing forms.
-    * @module form
+    * @module nor-ui/form
     */
 	var exports = {
 		'fields': {}
