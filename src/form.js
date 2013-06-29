@@ -292,22 +292,22 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 		}
 	};
 
-	/**
-	 * @callback form.initForm~options~successCallback
-	 * @param {object} form - HTML element
-	 */
-
-	/**
-	 * @typedef form.initForm~options
-	 * @type {object}
-	 * @property {form.initForm~options~successCallback} success - Callback which will be called after the form has been built.
-	 */
-
 	/** Initialize forms 
 	 * @param {object|string} obj - Element where the form will be created. It can also be JQuery selector string.
-	 * @param {form.initForm~options} opts - Options for initialization
+	 * @param {initForm~options} opts - Options for initialization
 	 */
 	exports.initForm = function(obj, opts) {
+		/**
+		 * @callback options~successCallback
+		 * @param {object} form - HTML element
+		 */
+	
+		/**
+		 * @typedef options
+		 * @type {object}
+		 * @property {options~successCallback} success - Callback which will be called after the form has been built.
+		 */
+
 			opts = opts || {};
 			var form_div = $(obj);
 			var action = $(form_div).attr('data-action');
