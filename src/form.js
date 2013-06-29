@@ -44,23 +44,23 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 	}
 	
 	/**
-	 * @callback FieldCreateCallback
-	 * @private
+	 * @callback fieldCreateCallback
+	 * @inner
 	 * @param {string} key - Field keyword
 	 * @param {string} value - Field value
 	 * @param {object} meta - Meta object
 	 */
 
 	/**
-	 * @typedef FieldsObject
-	 * @private
+	 * @typedef fieldsObject
+	 * @inner
 	 * @type {object}
-	 * @property {FieldCreateCallback} create - Function which builds the element
+	 * @property {form~fieldCreateCallback} create - Function which builds the element
 	 */
 
 	/** Implementations of field types
 	 * @private
-	 * @enum {FieldsObject}
+	 * @enum {form~fieldsObject}
 	 */
 	exports.fields = {
 		// Hidden field
