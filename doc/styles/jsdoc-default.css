@@ -32,6 +32,7 @@ a:active {
 	background-color: #000000;
 	margin: 0;
 	padding: 0;
+	height: 4em;
 }
 
 .page-title {
@@ -89,10 +90,11 @@ nav
 	display: block;
 	float: left;
     margin-left: -20%;
-    margin-top: 50px;
+    margin-top: 4em;
     width: 19%;
-    border-left: 1px solid #ccc;
+    border: 1px solid #ccc;
     padding-left: 9px;
+	background-color: #e0e0e0;
 }
 
 nav ul {
@@ -137,14 +139,16 @@ footer {
     font-size: 90%;
 	color: #ffffff;
 	background-color: #000000;
+	text-align: center;
 }
 
 h1
 {
-	font-size: 200%;
+	font-size: 2em;
 	font-weight: bold;
-	letter-spacing: -0.01em;
-	margin: 6px 0 9px 0;
+	letter-spacing: 0.075em;
+	margin: 0;
+	padding: 0;
 }
 
 h2
