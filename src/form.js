@@ -43,7 +43,25 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 		_form_meta._meta.types.year.options[i] = i;
 	}
 	
-	/** Implementations of field types */
+	/**
+	 * @callback FieldCreateCallback
+	 * @private
+	 * @param {string} key - Field keyword
+	 * @param {string} value - Field value
+	 * @param {object} meta - Meta object
+	 */
+
+	/**
+	 * @typedef FieldsObject
+	 * @private
+	 * @type {object}
+	 * @property {FieldCreateCallback} create - Function which builds the element
+	 */
+
+	/** Implementations of field types
+	 * @private
+	 * @enum {FieldsObject}
+	 */
 	exports.fields = {
 		// Hidden field
 		'hidden' : {
