@@ -7,13 +7,14 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 
    /** 
     * A module implementing forms.
-    * @exports nor-ui/form
-    * @version 0.1.0
+    * @exports form
     */
 	var $form = {
 		'fields': {}
 	};
 
+	/** Default metadata for forms
+	 */
 	var _form_meta = {
 		'_meta': {
 			'types': {
