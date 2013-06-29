@@ -294,7 +294,7 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 
 	/** Initialize forms 
 	 * @param {object|string} obj - Element where the form will be created. It can also be JQuery selector string.
-	 * @param {initForm~options} opts - Options for initialization
+	 * @param {nor-ui/form.initForm~options} opts - Options for initialization
 	 */
 	exports.initForm = function(obj, opts) {
 		/**
