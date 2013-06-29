@@ -7,9 +7,9 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 
    /** 
     * A module implementing forms.
-    * @exports form
+    * @module nor-ui.form
     */
-	var $form = {
+	var exports = {
 		'fields': {}
 	};
 
@@ -44,7 +44,7 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 	}
 	
 	/** Implementations of field types */
-	$form.fields = {
+	exports.fields = {
 		// Hidden field
 		'hidden' : {
 			'create': function(key, value, meta) {
@@ -259,7 +259,7 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 		// Year field
 		'year' : {
 			'create': function(key, value, meta) {
-				return $form.fields.multi.create(key, value, $meta.parse(_form_meta) );
+				return exports.fields.multi.create(key, value, $meta.parse(_form_meta) );
 			}
 		},
 		// Text field
@@ -307,7 +307,7 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 	 * @param {object|string} obj - Element where the form will be created. It can also be JQuery selector string.
 	 * @param {initForm~options} opts - Options for initialization
 	 */
-	$form.initForm = function(obj, opts) {
+	exports.initForm = function(obj, opts) {
 			opts = opts || {};
 			var form_div = $(obj);
 			var action = $(form_div).attr('data-action');
@@ -364,13 +364,13 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 						if( type && (typeof type === 'object') && type.type) {
 							type = type.type;
 						}
-						if($form.fields[type] && $form.fields[type].create) {
-							$(form).append($form.fields[type].create(key, val, meta, form_div));
+						if(exports.fields[type] && exports.fields[type].create) {
+							$(form).append(exports.fields[type].create(key, val, meta, form_div));
 						} else {
 							$(form).append( $('<div class="field">').append( $('<p/>').text('Undefined #' + key + ' of type ' + JSON.stringify(type) ) ) );
 						}
 					});
-					$(form).append( $form.fields.submit.create(undefined, undefined, $meta.parse(_form_meta), form_div) );
+					$(form).append( exports.fields.submit.create(undefined, undefined, $meta.parse(_form_meta), form_div) );
 				});
 			}
 
@@ -379,19 +379,19 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 
 	/** Initialize forms 
 	 */
-	$form.init = function(obj) {
+	exports.init = function(obj) {
 
 		/* Setup forms with data */
 		$(obj).find(".form").each(function() {
 			var form_div = this;
-			$form.initForm(form_div);
+			exports.initForm(form_div);
 		});
 	
 	};
 
 	/** Create form 
 	 */
-	$form.create = function(opts) {
+	exports.create = function(opts) {
 		opts = opts || {};
 
 		var success_fn;
@@ -413,16 +413,16 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 				div.attr('data-'+key, value);
 			}
 		});
-		$form.initForm(div, {'success':success_fn} );
+		exports.initForm(div, {'success':success_fn} );
 		return div;
 	};
 
 	/* Initialize stuff after page is loaded */
 	$(function () {
-		$form.init(this);
+		exports.init(this);
 	});
 
 	// End of library code
-	return $form;
+	return exports;
 });
 /* EOF */
