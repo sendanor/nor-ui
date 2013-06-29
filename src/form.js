@@ -55,12 +55,12 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 	 * @typedef fieldsObject
 	 * @inner
 	 * @type {object}
-	 * @property {form~fieldCreateCallback} create - Function which builds the element
+	 * @property {fieldCreateCallback} create - Function which builds the element
 	 */
 
 	/** Implementations of field types
-	 * @private
-	 * @enum {form~fieldsObject}
+	 * @inner
+	 * @enum {fieldsObject}
 	 */
 	exports.fields = {
 		// Hidden field
@@ -312,11 +312,13 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 
 	/**
 	 * @callback form~successCallback
+	 * @inner
 	 * @param {object} form - HTML element
 	 */
 	
 	/**
 	 * @typedef form~options
+	 * @inner
 	 * @type {object}
 	 * @property {form~successCallback} success - Callback which will be called after the form has been built.
 	 */
