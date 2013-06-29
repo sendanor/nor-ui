@@ -293,19 +293,19 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 	};
 
 	/**
-	 * @callback options~successCallback
+	 * @callback form~options~successCallback
 	 * @param {object} form - HTML element
 	 */
 	
 	/**
-	 * @typedef options
+	 * @typedef form~options
 	 * @type {object}
-	 * @property {options~successCallback} success - Callback which will be called after the form has been built.
+	 * @property {form~options~successCallback} success - Callback which will be called after the form has been built.
 	 */
 
 	/** Initialize forms 
 	 * @param {object|string} obj - Element where the form will be created. It can also be JQuery selector string.
-	 * @param {options} opts - Options for initialization
+	 * @param {form~options} opts - Options for initialization
 	 */
 	exports.initForm = function(obj, opts) {
 
