@@ -15,8 +15,8 @@ We are porting the library as an open source release. It requires some
 redesigning, documentation and tests.
 
 The library is in a state of initial development and things might change very 
-unexpectedly! However if you require less unstable release you can [contact 
-us](https://www.sendanor.com] and make a support deal.
+unexpectedly! However if you require less unstable release you can 
+[contact us](https://www.sendanor.com] and make a support deal.
 
 We are using an initial version of the library in a private client project. 
 Also part of the design is based on Sendanor's own ERP system which started 
