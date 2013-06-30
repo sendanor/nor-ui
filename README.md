@@ -1,7 +1,7 @@
 nor-ui
 ======
 
-JavaScript library composing user interfaces from RESTful web services
+JavaScript library composing user interfaces from RESTful web services.
 
 License
 -------
@@ -11,13 +11,16 @@ MIT license.
 Status
 ------
 
-At the moment we are starting the work to port the library as an open source 
-release.
+We are porting the library as an open source release. It requires some 
+redesigning, documentation and tests.
+
+The library is in a state of initial development and things might change very 
+unexpectedly! However if you require less unstable release you can [contact 
+us](https://www.sendanor.com] and make a support deal.
 
 We are using an initial version of the library in a private client project. 
-
 Also part of the design is based on Sendanor's own ERP system which started 
-back in 2007. This library will be part of the next generation ERP we're going 
+back in 2007. This library will be part of our next generation ERP we're going 
 to start working soon.
 
 Features
@@ -60,3 +63,15 @@ The implementation is not yet very pretty because the library code was shred
 from another private project and is using just a subset of features to put 
 everything together for that specific project.
 
+Tests
+-----
+
+No tests yet, sorry. We'll start working on that soon.
+
+API Documentation
+-----------------
+
+Automatically generated JSDoc documentation is available at [development 
+mirror](http://dev.sendanor.com/nor-ui/doc/index.html) and also [github 
+mirror](http://sendanor.github.io/nor-ui/doc/). However it's hardly at all 
+documented at the moment -- we're working on it.

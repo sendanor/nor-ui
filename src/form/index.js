@@ -160,7 +160,7 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 	 */
 	exports.init = function(obj) {
 
-		/* Setup forms with data */
+		/* Setup forms */
 		$(obj).find(".form").each(function() {
 			var form_div = this;
 			exports.initForm(form_div);
