@@ -7,14 +7,14 @@ define(function() {
 
 	/** 
 	 * A module implementing metadata for JavaScript JSON files
-	 * @module nor-ui/meta
+	 * @memberof module:nor-ui
 	 * @namespace nor-ui.meta
 	 */
 	var exports = {};
 
 	/** Meta object constructor
 	 * @class
-	 * @memberof module:nor-ui/meta
+	 * @memberof nor-ui.meta
 	 * @inner
 	 * @param data 
 	 */	
@@ -67,7 +67,7 @@ define(function() {
 	};
 
 	/** Create metadata object
-	 * @memberof module:nor-ui/meta
+	 * @memberof nor-ui.meta
 	 */
 	exports.parse = function(data) {
 		return new Meta(data);

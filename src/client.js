@@ -7,13 +7,12 @@ define(["jquery"], function ($) {
 
 	/** 
 	 * A module implementing AJAX library for our smart REST backend
-	 * @module nor-ui/client
 	 * @namespace nor-ui.client
 	 */
 	var exports = {};
 
 	/** Populate default values from ._meta.defaults if it exists 
-	 * @memberof module:nor-ui/client
+	 * @memberof nor-ui.client
 	 * @inner
 	 * @method populate_defaults sets default values if they do not exist
 	 * @param defs default meta object
@@ -33,7 +32,7 @@ define(["jquery"], function ($) {
 	}
 
 	/** Fetch resource 
-	 * @memberof module:nor-ui/client 
+	 * @memberof nor-ui.client 
 	 * @param url
 	 * @param fn function callback
 	 * @TODO $.getJSON could be implemented using common API which supports multiple implementations for HTTP requests, so that jquery would not be a dependency.
