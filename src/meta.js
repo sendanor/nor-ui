@@ -14,7 +14,7 @@ define(function() {
 
 	/** Meta object constructor
 	 * @class
-	 * @memberof meta
+	 * @memberof module:nor-ui.meta
 	 * @inner
 	 * @param data 
 	 */	
