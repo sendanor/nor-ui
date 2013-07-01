@@ -33,6 +33,7 @@ define(["jquery"], function ($) {
 	}
 
 	/** Fetch resource 
+	 * @memberof module:nor-ui.client
 	 * @param url
 	 * @param fn function callback
 	 * @TODO $.getJSON could be implemented using common API which supports multiple implementations for HTTP requests, so that jquery would not be a dependency.
