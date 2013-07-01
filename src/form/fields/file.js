@@ -8,6 +8,7 @@ define(["jquery"], function($) {
    /** 
     * Implements file upload field
     * @module nor-ui/form/fields/file
+	* @namespace nor-ui.form.fields.file
     */
 	var exports = {
 		'create': function(key, value, meta, parent_div) {

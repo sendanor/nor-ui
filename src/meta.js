@@ -5,10 +5,11 @@ if (typeof define !== 'function') {
 define(function() {
 	"use strict";
 
-   /** 
-    * A module implementing metadata for JavaScript JSON files
-    * @module nor-ui/meta
-    */
+	/** 
+	 * A module implementing metadata for JavaScript JSON files
+	 * @module nor-ui/meta
+	 * @namespace nor-ui.meta
+	 */
 	var exports = {};
 
 	/** Meta object constructor

@@ -9,6 +9,7 @@ define(["jquery"], function($) {
     * Implements location selection field by using Google Maps. Please view Google's Terms of Use before using it!
     * @module nor-ui/form/fields/location
 	* @todo Move Google Maps features to external git repository / implement prefered way of extending features
+	* @namespace nor-ui.form.fields.location
     */
 	var exports = {
 		'create': function(key, value, meta) {

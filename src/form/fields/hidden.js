@@ -9,6 +9,7 @@ define(["jquery"], function($) {
     * Implements hidden field.
     * @module nor-ui/form/fields/hidden
 	* @todo Maybe jquery could be avoided by using something more portable
+	* @namespace nor-ui.form.fields.hidden
     */
 	var exports = {
 		'create': function(key, value, meta) {
