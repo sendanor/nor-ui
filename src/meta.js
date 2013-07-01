@@ -8,13 +8,13 @@ define(function() {
 	/** 
 	 * A module implementing metadata for JavaScript JSON files
 	 * @memberof module:nor-ui
-	 * @namespace nor-ui.meta
+	 * @namespace meta
 	 */
 	var exports = {};
 
 	/** Meta object constructor
 	 * @class
-	 * @memberof nor-ui.meta
+	 * @memberof meta
 	 * @inner
 	 * @param data 
 	 */	
@@ -67,7 +67,7 @@ define(function() {
 	};
 
 	/** Create metadata object
-	 * @memberof nor-ui.meta
+	 * @memberof meta
 	 */
 	exports.parse = function(data) {
 		return new Meta(data);
