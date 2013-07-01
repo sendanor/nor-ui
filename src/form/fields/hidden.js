@@ -12,7 +12,9 @@ define(["jquery"], function($) {
 	 * @todo Maybe jquery could be avoided by using something more portable
 	 */
 	var exports = {
-		/** Create element */
+		/** Create element
+		 * @memberof module:nor-ui.form.fields.hidden
+		 */
 		'create': function(key, value, meta) {
 			var div = $('<div class="field hide" />');
 			var input = $('<input type="hidden"/>').attr('value', value).attr('name', key);
