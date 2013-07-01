@@ -13,11 +13,11 @@ define(["jquery"], function ($) {
 	var $client = {};
 
 	/** Populate default values from ._meta.defaults if it exists 
-	*@memberof client 
-	*@inner
-	*@method populate_defaults sets default values if they do not exist
-	*@param defs default meta object
-	*@TODO Unnecessary jquery dependency -- foreach could be implemented depency-free
+	* @memberof client 
+	* @inner
+	* @method populate_defaults sets default values if they do not exist
+	* @param defs default meta object
+	* @TODO Unnecessary jquery dependency -- foreach could be implemented depency-free
 	*/
 	function populate_defaults(obj) {
 		if(!(obj && obj._meta && obj._meta.defaults)) {
@@ -33,14 +33,14 @@ define(["jquery"], function ($) {
 	}
 
 	/** Fetch resource 
-	*@memberof client 
-	*@inner
-	*@param url
-	*@param fn function callback
-	*@TODO $.getJSON could be implemented using common API which supports multiple implementations for HTTP requests, so that jquery would not be a dependency.
-	*@TODO Implement cache with some kind of version control
-	*@TODO Unnecessary jquery dependency -- foreach could be implemented depency-free
-	*@TODO Implement better error control
+	* @memberof client 
+	* @inner
+	* @param url
+	* @param fn function callback
+	* @TODO $.getJSON could be implemented using common API which supports multiple implementations for HTTP requests, so that jquery would not be a dependency.
+	* @TODO Implement cache with some kind of version control
+	* @TODO Unnecessary jquery dependency -- foreach could be implemented depency-free
+	* @TODO Implement better error control
 	*/
 	$client.get = function(url, fn) {
 		// FIXME: $.getJSON could be implemented using common API which supports multiple implementations for HTTP requests, so that jquery would not be a dependency.
