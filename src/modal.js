@@ -7,13 +7,14 @@ define(["jquery"], function($) {
 
 	/** 
 	 * A modal implementation
-	 * @module nor-ui/modal
+	 * @module nor-ui
 	 * @namespace nor-ui.modal
 	 */
 	var exports = {};
 
 	/** Enable or disable dismiss layer behind a modal
-	 * @memberof module:nor-ui/modal
+	 * @memberof module:nor-ui.modal
+	 *
 	 * @param modal
 	 */
 	exports.dismiss = function(modal){
@@ -34,7 +35,7 @@ define(["jquery"], function($) {
 	};
 
 	/** Initialize a link 
-	 * @memberof module:nor-ui/modal
+	 * @memberof module:nor-ui.modal
 	 * @param link
 	 */
 	exports.initLink = function(link) {
@@ -47,7 +48,7 @@ define(["jquery"], function($) {
 	};
 	
 	/** Initialize a modal 
-	 * @memberof module:nor-ui/modal
+	 * @memberof module:nor-ui.modal
 	 * @param modal
 	 */
 	exports.initModal = function(modal) {
@@ -69,7 +70,7 @@ define(["jquery"], function($) {
 	};
 
 	/** Initialize links and modals
-	 * @memberof module:nor-ui/modal
+	 * @memberof module:nor-ui.modal
 	 */
 	exports.init = function(obj) {
 
@@ -86,7 +87,7 @@ define(["jquery"], function($) {
 	};
 	
 	/** Dynamically create a modal
-	 * @memberof module:nor-ui/modal
+	 * @memberof module:nor-ui.modal
 	 */
 	exports.create = function(obj) {
 		var div = $('<div class="modal" />');
@@ -100,7 +101,7 @@ define(["jquery"], function($) {
 	};
 
 	/** Open a modal 
-	 * @memberof module:nor-ui/modal
+	 * @memberof module:nor-ui.modal
 	 */
 	exports.open = function(obj) {
 		var div = $(obj);
@@ -110,7 +111,7 @@ define(["jquery"], function($) {
 	};
 
 	/** Close a modal 
-	 * @memberof module:nor-ui/modal
+	 * @memberof module:nor-ui.modal
 	 */
 	exports.close = function(div) {
 		div = $(div);
@@ -120,7 +121,7 @@ define(["jquery"], function($) {
 	};
 
 	/** Delete a modal 
-	 * @memberof module:nor-ui/modal
+	 * @memberof module:nor-ui.modal
 	 */
 	exports.del = function(div) {
 		div = $(div);
