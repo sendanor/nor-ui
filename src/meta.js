@@ -7,16 +7,14 @@ define(function() {
 
    /** 
     * A module implementing metadata for JavaScript JSON files
-    * @exports nor-ui/meta
-    * @version 0.1.0
-	*@param $meta Meta object
+    * @module nor-ui/meta
     */
-	var $meta = {};
+	var exports = {};
 
 	/** Meta object constructor
-	*@param data 
-	*/
-	
+	 * @class
+	 * @param data 
+	 */	
 	function Meta(data) {
 		var self = this;
 		self.data = data || {};
@@ -48,8 +46,8 @@ define(function() {
 	};
 
 	/** Translate 
-	*@TODO Select language automatically
-	*/
+	 * @TODO Select language automatically
+	 */
 	Meta.prototype.t = function(key, lang) {
 		var self = this;
 		if(!lang) {
@@ -63,11 +61,11 @@ define(function() {
 	};
 
 	/** Create metadata object */
-	$meta.parse = function(data) {
+	exports.parse = function(data) {
 		return new Meta(data);
 	};
 
 	// End of library code
-	return $meta;
+	return exports;
 });
 /* EOF */

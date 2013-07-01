@@ -62,7 +62,6 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 	 */
 
 	/** Implementations of field types
-	 * @inner
 	 * @enum {fieldsObject}
 	 */
 	exports.fields = require('fields/index.js');
