@@ -5,32 +5,31 @@ if (typeof define !== 'function') {
 define(["jquery"], function($) {
 	"use strict";
 
-   /** 
-    * A modal implementation
-    * @exports nor-ui/modal
-    * @version 0.1.0
-	* @namespace modal
-    */
-	var $modal = {};
+	/** 
+	 * A modal implementation
+	 * @module nor-ui/modal
+	 * @namespace modal
+	 */
+	var exports = {};
 
 	/** Enable or disable dismiss layer behind a modal
 	 * @memberof modal
 	 * @param modal
 	 */
-	$modal.dismiss = function(modal){
-		if($modal._dismiss) {
-			$($modal._dismiss).remove();
-			delete $modal._dismiss;
+	exports.dismiss = function(modal){
+		if(exports._dismiss) {
+			$(exports._dismiss).remove();
+			delete exports._dismiss;
 		} else {
 			var div = $('<div id="modal-dismiss" />');
 			$(div).click(function() {
-				$modal.dismiss();
+				exports.dismiss();
 				if (modal) {
 					$(modal).hide(); 
 				}
 			});
 			$('body').append(div);
-			$modal._dismiss = div;
+			exports._dismiss = div;
 		}
 	};
 
@@ -39,11 +38,11 @@ define(["jquery"], function($) {
 	 * @inner
 	 * @param link
 	 */
-	$modal.initLink = function(link) {
+	exports.initLink = function(link) {
 		$(link).click(function() {
 			var href = $(link).attr('href');
 			$(href).show();
-			$modal.dismiss(href);
+			exports.dismiss(href);
 			return false; // Returns false so the link does not do anything.
 		});
 	};
@@ -53,7 +52,7 @@ define(["jquery"], function($) {
 	 * @inner
 	 * @param modal
 	 */
-	$modal.initModal = function(modal) {
+	exports.initModal = function(modal) {
 		
 		/* Setup links to close modals */
 		$(modal).find("[data-dismiss='modal']").each(function() {
@@ -65,73 +64,73 @@ define(["jquery"], function($) {
 				} else {
 					$(href).hide();
 				}
-				$modal.dismiss();
+				exports.dismiss();
 				return false; // Returns false so the link does not do anything.
 			});
 		});
 	};
 
 	/** Initialize links and modals */
-	$modal.init = function(obj) {
+	exports.init = function(obj) {
 
 		/* Setup links to open modals */
 		$(obj).find("[data-toggle='modal']").each(function() {
-			$modal.initLink(this);
+			exports.initLink(this);
 		});
 
 		/* Setup modals */
 		$(obj).find(".modal").each(function() {
-			$modal.initModal(this);
+			exports.initModal(this);
 		});
 
 	};
 	
 	/** Dynamically create a modal
 	 */
-	$modal.create = function(obj) {
+	exports.create = function(obj) {
 		var div = $('<div class="modal" />');
 		if(obj) {
 			div.append($(obj));
 		}
 		div.hide();
-		$modal.initModal(div);
+		exports.initModal(div);
 		$('body').append(div);
 		return div;
 	};
 
 	/** Open a modal 
 	 */
-	$modal.open = function(obj) {
+	exports.open = function(obj) {
 		var div = $(obj);
 		div.show();
-		$modal.dismiss(div);
+		exports.dismiss(div);
 		return div;
 	};
 
 	/** Close a modal 
 	 */
-	$modal.close = function(div) {
+	exports.close = function(div) {
 		div = $(div);
 		div.hide();
-		$modal.dismiss(div);
+		exports.dismiss(div);
 		return div;
 	};
 
 	/** Delete a modal 
 	 */
-	$modal.del = function(div) {
+	exports.del = function(div) {
 		div = $(div);
-		$modal.close(div);
+		exports.close(div);
 		$(div).remove();
 		return div;
 	};
 
 	/* Initialize stuff after page is loaded */
 	$(function () {
-		$modal.init(this);
+		exports.init(this);
 	});
 
 	// End of library code
-	return $modal;
+	return exports;
 });
 /* EOF */
