@@ -8,15 +8,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Sendanor/nor-ui.git"
+    "url": "https://github.com/Sendanor/nor-ui"
   },
+  "homepage": "http://sendanor.github.io/nor-ui/",
   "keywords": [
     "ui",
     "form",
     "rest",
     "modal"
   ],
-  "author": "Jaakko-Heikki Heusala <jhh@sendanor.com>",
+  "author": "Sendanor <info@sendanor.com>",
+  "contributors": [
+    {
+      "name": "Jaakko-Heikki Heusala",
+      "email": "jhh@sendanor.com"
+    },
+    {
+      "name": "Aleksi Pöyhtäri",
+      "email": "apoyhtari@sendanor.com"
+    }
+  ],
   "license": "MIT",
   "readmeFilename": "README.md",
   "gitHead": "60450316ad412039636c9ac069f0a0b53ef345be",
@@ -25,5 +36,9 @@
   },
   "devDependencies": {
     "requirejs": "*"
+  },
+  "bugs": {
+    "url" : "https://github.com/sendanor/nor-ui/issues",
+    "email" : "info@sendanor.com"
   }
 }
