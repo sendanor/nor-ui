@@ -8,7 +8,7 @@ define(["jquery"], function ($) {
 	/** 
 	 * A module implementing AJAX library for our smart REST backend
 	 * @module nor-ui/client
-	 * @namespace nor-ui
+	 * @namespace nor-ui.client
 	 */
 	var exports = {};
 
