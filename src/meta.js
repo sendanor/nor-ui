@@ -67,7 +67,7 @@ define(function() {
 	};
 
 	/** Create metadata object
-	 * @memberof meta
+	 * @memberof module:nor-ui.meta
 	 */
 	exports.parse = function(data) {
 		return new Meta(data);
