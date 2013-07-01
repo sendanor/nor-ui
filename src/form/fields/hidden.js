@@ -5,13 +5,14 @@ if (typeof define !== 'function') {
 define(["jquery"], function($) {
 	"use strict";
 
-   /** 
-    * Implements hidden field.
-    * @memberof module:nor-ui.form.fields
-	* @namespace hidden
-	* @todo Maybe jquery could be avoided by using something more portable
-    */
+	/** 
+	 * Implements hidden field.
+	 * @memberof module:nor-ui.form.fields
+	 * @namespace hidden
+	 * @todo Maybe jquery could be avoided by using something more portable
+	 */
 	var exports = {
+		/** Create element */
 		'create': function(key, value, meta) {
 			var div = $('<div class="field hide" />');
 			var input = $('<input type="hidden"/>').attr('value', value).attr('name', key);
