@@ -15,7 +15,6 @@ define(["jquery"], function($) {
 	/** Enable or disable dismiss layer behind a modal
 	*@memberof modal
 	*@inner
-	*@method dismiss
 	*@param modal
 	*/
 	$modal.dismiss = function(modal){
@@ -38,7 +37,6 @@ define(["jquery"], function($) {
 	/** Initialize a link 
 	*@memberof modal
 	*@inner
-	*@method initlink
 	*@param link
 	*/
 	$modal.initLink = function(link) {
@@ -51,7 +49,8 @@ define(["jquery"], function($) {
 	};
 	
 	/** Initialize a modal 
-	*@method initmodal
+	*@memberof modal
+	*@inner
 	*@param modal
 	*/
 	$modal.initModal = function(modal) {
