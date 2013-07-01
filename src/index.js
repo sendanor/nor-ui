@@ -6,10 +6,10 @@ define(["./form", "./client", "./meta", "./modal"], function(form, client, meta,
 	/** 
 	 * The main include path for our public API
 	 * @module nor-ui
-	 * @borrows form as nor-ui.form
-	 * @borrows client as nor-ui.client
-	 * @borrows meta as nr-ui.meta
-	 * @borrows modal as nor-ui.modal
+	 * @borrows nor-ui.form as form
+	 * @borrows nor-ui.client as client
+	 * @borrows nr-ui.meta as meta
+	 * @borrows nor-ui.modal as modal
 	 */
 	var exports = {
 		'form':   form,
