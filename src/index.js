@@ -8,10 +8,10 @@ define(["./form", "./client", "./meta", "./modal"], function(form, client, meta,
 	 * @exports nor-ui
 	 * @version 0.1.0
 	 * @namespace
-	 * @borrows form as nor-ui/form
-	 * @borrows client as nor-ui/client
-	 * @borrows meta as nor-ui/meta
-	 * @borrows modal as nor-ui/modal
+	 * @borrows form as module:nor-ui/form
+	 * @borrows client as module:nor-ui/client
+	 * @borrows meta as module:nor-ui/meta
+	 * @borrows modal as module:nor-ui/modal
 	 */
 	var index = {
 		'form':   form,
