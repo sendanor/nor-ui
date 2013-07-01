@@ -9,14 +9,14 @@ define(["jquery"], function($) {
     * A modal implementation
     * @exports nor-ui/modal
     * @version 0.1.0
-	* @namespace nor-ui
+	* @namespace modal
     */
 	var $modal = {};
 
 	/** Enable or disable dismiss layer behind a modal
-	*@memberof modal
-	*@param modal
-	*/
+	 * @memberof modal
+	 * @param modal
+	 */
 	$modal.dismiss = function(modal){
 		if($modal._dismiss) {
 			$($modal._dismiss).remove();
@@ -35,10 +35,10 @@ define(["jquery"], function($) {
 	};
 
 	/** Initialize a link 
-	*@memberof modal
-	*@inner
-	*@param link
-	*/
+	 * @memberof modal
+	 * @inner
+	 * @param link
+	 */
 	$modal.initLink = function(link) {
 		$(link).click(function() {
 			var href = $(link).attr('href');
@@ -49,10 +49,10 @@ define(["jquery"], function($) {
 	};
 	
 	/** Initialize a modal 
-	*@memberof modal
-	*@inner
-	*@param modal
-	*/
+	 * @memberof modal
+	 * @inner
+	 * @param modal
+	 */
 	$modal.initModal = function(modal) {
 		
 		/* Setup links to close modals */
@@ -71,7 +71,7 @@ define(["jquery"], function($) {
 		});
 	};
 
-	/* Initialize links and modals */
+	/** Initialize links and modals */
 	$modal.init = function(obj) {
 
 		/* Setup links to open modals */
