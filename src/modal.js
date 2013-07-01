@@ -12,7 +12,12 @@ define(["jquery"], function($) {
     */
 	var $modal = {};
 
-	/** Enable or disable dismiss layer behind a modal */
+	/** Enable or disable dismiss layer behind a modal
+	*@memberof modal
+	*@inner
+	*@method dismiss
+	*@param modal
+	*/
 	$modal.dismiss = function(modal){
 		if($modal._dismiss) {
 			$($modal._dismiss).remove();
@@ -30,7 +35,12 @@ define(["jquery"], function($) {
 		}
 	};
 
-	/* Initialize a link */
+	/** Initialize a link 
+	*@memberof modal
+	*@inner
+	*@method initlink
+	*@param link
+	*/
 	$modal.initLink = function(link) {
 		$(link).click(function() {
 			var href = $(link).attr('href');
@@ -40,7 +50,10 @@ define(["jquery"], function($) {
 		});
 	};
 	
-	/* Initialize a modal */
+	/** Initialize a modal 
+	*@method initmodal
+	*@param modal
+	*/
 	$modal.initModal = function(modal) {
 		
 		/* Setup links to close modals */

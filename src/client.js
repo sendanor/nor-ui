@@ -13,7 +13,7 @@ define(["jquery"], function ($) {
 	var $client = {};
 
 	/** Populate default values from ._meta.defaults if it exists 
-	*@memberof nor-ui/client 
+	*@memberof client 
 	*@inner
 	*@method populate_defaults sets default values if they do not exist
 	*@param defs default meta object
@@ -33,6 +33,8 @@ define(["jquery"], function ($) {
 	}
 
 	/** Fetch resource 
+	*@memberof client 
+	*@inner
 	*@param url
 	*@param fn function callback
 	*@TODO $.getJSON could be implemented using common API which supports multiple implementations for HTTP requests, so that jquery would not be a dependency.

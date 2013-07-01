@@ -9,7 +9,7 @@ define(function() {
     * A module implementing metadata for JavaScript JSON files
     * @exports nor-ui/meta
     * @version 0.1.0
-	@param $meta Meta object
+	*@param $meta Meta object
     */
 	var $meta = {};
 
