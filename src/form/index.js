@@ -5,10 +5,11 @@ if (typeof define !== 'function') {
 define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 	"use strict";
 
-   /** 
-    * A module implementing forms.
-    * @module nor-ui/form
-    */
+	/**
+	 * A module implementing forms.
+	 * @module nor-ui/form
+	 * @namespace form
+	 */
 	var exports = {
 		'fields': {}
 	};
