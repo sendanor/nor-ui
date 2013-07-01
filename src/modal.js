@@ -7,7 +7,7 @@ define(["jquery"], function($) {
 
 	/** 
 	 * A modal implementation
-	 * @module nor-ui
+	 * @memberof module:nor-ui
 	 * @namespace nor-ui.modal
 	 */
 	var exports = {};
