@@ -35,7 +35,6 @@ define(["jquery"], function($) {
 
 	/** Initialize a link 
 	 * @memberof modal
-	 * @inner
 	 * @param link
 	 */
 	exports.initLink = function(link) {
@@ -49,7 +48,6 @@ define(["jquery"], function($) {
 	
 	/** Initialize a modal 
 	 * @memberof modal
-	 * @inner
 	 * @param modal
 	 */
 	exports.initModal = function(modal) {
