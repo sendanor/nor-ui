@@ -9,10 +9,14 @@ define(function() {
     * A module implementing metadata for JavaScript JSON files
     * @exports nor-ui/meta
     * @version 0.1.0
+	@param $meta Meta object
     */
 	var $meta = {};
 
-	/** Meta object constructor */
+	/** Meta object constructor
+	*@param data 
+	*/
+	
 	function Meta(data) {
 		var self = this;
 		self.data = data || {};
@@ -43,7 +47,9 @@ define(function() {
 		}
 	};
 
-	/** Translate */
+	/** Translate 
+	*@TODO Select language automatically
+	*/
 	Meta.prototype.t = function(key, lang) {
 		var self = this;
 		if(!lang) {
