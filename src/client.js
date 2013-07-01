@@ -13,7 +13,7 @@ define(["jquery"], function ($) {
 	var $client = {};
 
 	/** Populate default values from ._meta.defaults if it exists 
-	*@memberof client 
+	*@memberof nor-ui/client 
 	*@inner
 	*@method populate_defaults sets default values if they do not exist
 	*@param defs default meta object
