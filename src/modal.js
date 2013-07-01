@@ -14,7 +14,6 @@ define(["jquery"], function($) {
 
 	/** Enable or disable dismiss layer behind a modal
 	*@memberof modal
-	*@inner
 	*@param modal
 	*/
 	$modal.dismiss = function(modal){
