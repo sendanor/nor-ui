@@ -13,6 +13,8 @@ define(function() {
 
 	/** Meta object constructor
 	 * @class
+	 * @memberof module:nor-ui/meta
+	 * @inner
 	 * @param data 
 	 */	
 	function Meta(data) {
@@ -31,7 +33,9 @@ define(function() {
 		}
 	}
 
-	/** Get type for keyword */
+	/** Get type for keyword
+	 * @memberof Meta
+	 */
 	Meta.prototype.getType = function(key) {
 		var self = this;
 		if(self.types[key]) {
@@ -47,6 +51,7 @@ define(function() {
 
 	/** Translate 
 	 * @TODO Select language automatically
+	 * @memberof Meta
 	 */
 	Meta.prototype.t = function(key, lang) {
 		var self = this;
@@ -60,7 +65,9 @@ define(function() {
 		return self.translations[lang][key] || key;
 	};
 
-	/** Create metadata object */
+	/** Create metadata object
+	 * @memberof module:nor-ui/meta
+	 */
 	exports.parse = function(data) {
 		return new Meta(data);
 	};
