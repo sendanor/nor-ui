@@ -7,8 +7,8 @@ define(["jquery"], function($) {
 
    /** 
     * Implements multi value field as a select input element.
-    * @module nor-ui/form/fields/multi
-	* @namespace nor-ui.form.fields.multi
+    * @memberof form.fields
+	* @namespace multi
     */
 	var exports = {
 		'create': function(key, value, meta) {

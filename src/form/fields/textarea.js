@@ -7,8 +7,8 @@ define(["jquery"], function($) {
 
    /** 
     * Implements textarea field
-    * @module nor-ui/form/fields/textarea
-	* @namespace nor-ui.form.fields.textarea
+    * @memberof form.fields
+	* @namespace textarea
     */
 	var exports = {
 		'create': function(key, value, meta) {

@@ -7,9 +7,9 @@ define(["jquery"], function($) {
 
    /** 
     * Implements different field types
-    * @module nor-ui/form/fields
+    * @memberof form
+	* @namespace fields
 	* @todo Fix '_form_meta' is not defined.
-	* @namespace nor-ui.form.fields
     */
 	var exports = {
 		'hidden'   : require('./hidden.js'),

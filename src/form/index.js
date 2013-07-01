@@ -7,8 +7,8 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 
 	/**
 	 * A module implementing forms.
-	 * @module nor-ui/form
-	 * @namespace nor-ui.form
+	 * @memberof module:nor-ui
+	 * @namespace form
 	 */
 	var exports = {
 		'fields': {}
@@ -16,7 +16,7 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 
 	/** Default metadata for forms
 	 * @inner
-	 * @memberof module:nor-ui/form
+	 * @memberof form
 	 */
 	var _form_meta = {
 		'_meta': {
@@ -48,7 +48,7 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 	
 	/**
 	 * @callback fieldCreateCallback
-	 * @memberof module:nor-ui/form
+	 * @memberof form
 	 * @inner
 	 * @param {string} key - Field keyword
 	 * @param {string} value - Field value
@@ -57,7 +57,7 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 
 	/**
 	 * @typedef fieldsObject
-	 * @memberof module:nor-ui/form
+	 * @memberof form
 	 * @inner
 	 * @type {object}
 	 * @property {fieldCreateCallback} create - Function which builds the element
@@ -65,27 +65,27 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 
 	/** Implementations of field types
 	 * @enum {fieldsObject}
-	 * @memberof module:nor-ui/form
+	 * @memberof form
 	 */
 	exports.fields = require('fields/index.js');
 
 	/**
 	 * @callback form~successCallback
-	 * @memberof module:nor-ui/form
+	 * @memberof form
 	 * @inner
 	 * @param {object} form - HTML element
 	 */
 	
 	/**
 	 * @typedef form~options
-	 * @memberof module:nor-ui/form
+	 * @memberof form
 	 * @inner
 	 * @type {object}
 	 * @property {form~successCallback} success - Callback which will be called after the form has been built.
 	 */
 
 	/** Initialize forms 
-	 * @memberof module:nor-ui/form
+	 * @memberof form
 	 * @param {object|string} obj - Element where the form will be created. It can also be JQuery selector string.
 	 * @param {form~options} opts - Options for initialization
 	 */
@@ -161,7 +161,7 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 	};
 
 	/** Initialize forms 
-	 * @memberof module:nor-ui/form
+	 * @memberof form
 	 */
 	exports.init = function(obj) {
 
@@ -174,7 +174,7 @@ define(["jquery", "./client", "./meta"], function($, $client, $meta) {
 	};
 
 	/** Create form 
-	 * @memberof module:nor-ui/form
+	 * @memberof form
 	 */
 	exports.create = function(opts) {
 		opts = opts || {};
