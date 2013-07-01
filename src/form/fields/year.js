@@ -7,7 +7,7 @@ define(["jquery", "../../meta"], function($, $meta) {
 
    /** 
     * Implements year value field
-    * @memberof form.fields
+    * @memberof module:nor-ui.form.fields
 	* @namespace year
 	* @todo Fix '_form_meta' is not defined.
     */

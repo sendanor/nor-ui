@@ -7,7 +7,7 @@ define(["jquery"], function($) {
 
    /** 
     * Implements submit button
-    * @memberof form.fields
+    * @memberof module:nor-ui.form.fields
 	* @namespace submit
     */
 	var exports = {

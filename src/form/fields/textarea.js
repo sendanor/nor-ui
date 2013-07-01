@@ -7,7 +7,7 @@ define(["jquery"], function($) {
 
    /** 
     * Implements textarea field
-    * @memberof form.fields
+    * @memberof module:nor-ui.form.fields
 	* @namespace textarea
     */
 	var exports = {

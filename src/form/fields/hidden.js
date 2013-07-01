@@ -7,7 +7,7 @@ define(["jquery"], function($) {
 
    /** 
     * Implements hidden field.
-    * @memberof form.fields
+    * @memberof module:nor-ui.form.fields
 	* @namespace hidden
 	* @todo Maybe jquery could be avoided by using something more portable
     */

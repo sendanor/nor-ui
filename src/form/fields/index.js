@@ -7,7 +7,7 @@ define(["jquery"], function($) {
 
    /** 
     * Implements different field types
-    * @memberof form
+    * @memberof module:nor-ui.form
 	* @namespace fields
 	* @todo Fix '_form_meta' is not defined.
     */
